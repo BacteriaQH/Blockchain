@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head') %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+  <script src="/js/poa.js"></script>
+</head>
+
+<body>
+    <%- include('./partials/header') %>
+    <div style="width: 10%; margin: 0 auto;">
+        <h3>PoA</h3>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h4>Previous Hash</h4>
+                <input type="text" disabled id="prevHash" value="<%- lastBlock.hash%>" style="width: 70%;">
+            </div>
+            <div class="col-6">
+                <h4>New Block</h4>
+                <div>index: <input class="ms-3 my-3" type="text" disabled id="index" value="<%- lastBlock.index +1 %>"></div>
+                <div>Nonce: <input class="ms-3 my-3" type="text" disabled id="nonce" value="1"></div>
+                <div>Data: <textarea class="ms-3 mt-3" type="text" id="data" style="width: 50%; height: 80px;"></textarea></div>
+                <div>Hash: <input class="ms-3 my-3" type="text" disabled id="hash" style="width: 70%;"></div>
+                <button class="btn btn-primary" onclick="mine()">Mine</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
